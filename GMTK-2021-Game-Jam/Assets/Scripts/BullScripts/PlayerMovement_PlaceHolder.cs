@@ -1,23 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement_PlaceHolder : MonoBehaviour
 {
     [Header("Player Variables")]
     public float speed;
 
+    public InputAction wasd;
+    public CharacterController controller;
+    private void OnEnable()
+    {
+        wasd.Enable();
+    }
+
+    private void OnDisable()
+    {
+        wasd.Disable();
+    }
     private void Update()
     {
-        Move();
+        Vector2 inputVector = wasd.ReadValue<Vector2>();
+        Vector3 finalVector = new Vector3(inputVector.x,0,inputVector.y);
+        controller.Move(finalVector * Time.deltaTime * speed);
     }
 
-    void Move()
-    {
-        float xDir = Input.GetAxis("Horizontal");
-        float zDir = Input.GetAxis("Vertical");
-
-        Vector3 moveDir = new Vector3(xDir, 0, zDir);
-        this.transform.Translate(moveDir * speed * Time.deltaTime);
-    }
+ 
 }

@@ -405,6 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1099148148}
   - component: {fileID: 1099148147}
+  - component: {fileID: 1099148149}
   m_Layer: 0
   m_Name: Player_PlaceHolder
   m_TagString: Untagged
@@ -425,6 +426,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
+  wasd:
+    m_Name: Wasd
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 30e6d751-67f0-4d6f-8375-6c96f6e8d6db
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 2c77e717-07e0-4e44-b6d7-bd66d505624a
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Wasd
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 8eca816c-84cc-4d8f-a9a6-d478a5836bf8
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Wasd
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 9ce15640-8e60-478f-b0a2-34748478840d
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Wasd
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 0645cbb7-706c-409e-8bfb-cb7c7f4323ba
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Wasd
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 9b57733d-eb0c-4bad-a583-eaab1d823952
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Wasd
+      m_Flags: 8
+  controller: {fileID: 1099148149}
 --- !u!4 &1099148148
 Transform:
   m_ObjectHideFlags: 0
@@ -441,6 +491,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &1099148149
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099148146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1539686206
 GameObject:
   m_ObjectHideFlags: 0
