@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fragmentPrefab: {fileID: 100000, guid: 3c9291a9e8f2ba04e96860710d1f70c0, type: 3}
-  fragmentCount: 80
+  fragmentCount: 20
   interval: {x: 0, y: 0, z: 0.25}
   anchorPoint1: {fileID: 0}
   anchorPoint2: {fileID: 0}
