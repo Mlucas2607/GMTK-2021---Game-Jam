@@ -10,7 +10,6 @@ public class PlayerMovement_PlaceHolder : MonoBehaviour
 
     public InputAction wasd;
     public InputAction ijkl;
-    public CharacterController controller;
     public Rigidbody rb;
 
     public bool is2nd;
@@ -36,14 +35,11 @@ public class PlayerMovement_PlaceHolder : MonoBehaviour
         Vector2 inputVector = new Vector2();
 
         if (is2nd)
-            inputVector = wasd.ReadValue<Vector2>() * speed;
-        else if(!is2nd)
             inputVector = ijkl.ReadValue<Vector2>() * speed;
+        else
+            inputVector = wasd.ReadValue<Vector2>() * speed;
 
         Vector3 finalVector = new Vector3(inputVector.x,rb.velocity.y,inputVector.y);
         rb.velocity = finalVector;
-        //controller.Move(finalVector * Time.deltaTime * speed);
     }
-
- 
 }
