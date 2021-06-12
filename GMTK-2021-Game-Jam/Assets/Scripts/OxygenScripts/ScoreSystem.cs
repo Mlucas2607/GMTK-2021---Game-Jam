@@ -48,7 +48,7 @@ public class ScoreSystem : MonoBehaviour
     {
         if (Score > HighScore)
         {
-            PlayerPrefs.SetInt("highScore", HighScore);
+            PlayerPrefs.SetInt("highScore", Score);
             PlayerPrefs.Save();
         }
     }
@@ -72,7 +72,12 @@ public class ScoreSystem : MonoBehaviour
         StopAllCoroutines();
     }
 
-    public static ScoreSystem instance;
+    private static ScoreSystem instance;
+
+    public static ScoreSystem GetInstance()
+    {
+        return instance;
+    }
     
     private void Start()
     {
