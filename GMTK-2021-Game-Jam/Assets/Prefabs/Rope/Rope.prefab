@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2704824120275040907}
   - component: {fileID: 2704824120275040904}
   - component: {fileID: 2704824120275040906}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,6 +47,8 @@ MonoBehaviour:
   fragmentPrefab: {fileID: 100000, guid: 3c9291a9e8f2ba04e96860710d1f70c0, type: 3}
   fragmentCount: 80
   interval: {x: 0, y: 0, z: 0.25}
+  anchorPoint1: {fileID: 0}
+  anchorPoint2: {fileID: 0}
 --- !u!120 &2704824120275040906
 LineRenderer:
   m_ObjectHideFlags: 0

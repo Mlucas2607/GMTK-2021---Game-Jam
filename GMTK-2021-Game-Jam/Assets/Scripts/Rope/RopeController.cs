@@ -4,14 +4,11 @@ namespace Rope
 {
     public class RopeController : MonoBehaviour
     {
-        [SerializeField]
-        GameObject fragmentPrefab;
-
-        [SerializeField]
-        int fragmentCount = 80;
-
-        [SerializeField]
-        Vector3 interval = new Vector3(0f, 0f, 0.25f);
+        public GameObject fragmentPrefab;
+        public int fragmentCount = 80;
+        public Vector3 interval = new Vector3(0f, 0f, 0.25f);
+        public SpringJoint anchorPoint1;
+        public Rigidbody anchorPoint2;
 
         GameObject[] fragments;
 
@@ -33,7 +30,7 @@ namespace Rope
 
             fragments = new GameObject[fragmentCount];
 
-            var position = Vector3.zero;
+            var position = anchorPoint1.transform.position;
 
             for (var i = 0; i < fragmentCount; i++)
             {
@@ -45,9 +42,15 @@ namespace Rope
                 {
                     joint.connectedBody = fragments[i - 1].GetComponent<Rigidbody>();
                 }
-
+                else
+                {
+                    anchorPoint1.connectedBody = fragments[0].GetComponent<Rigidbody>();
+                }
+                
                 position += interval;
             }
+
+            fragments[fragmentCount - 1].GetComponent<SpringJoint>().connectedBody = anchorPoint2;
 
             var lineRenderer = GetComponent<LineRenderer>();
             lineRenderer.positionCount = (fragmentCount - 1) * splineFactor + 1;
@@ -63,7 +66,7 @@ namespace Rope
 
         void Update()
         {
-            var vy = Input.GetAxisRaw("Vertical") * 20f * Time.deltaTime;
+            /*var vy = Input.GetAxisRaw("Vertical") * 20f * Time.deltaTime;
             activeFragmentCount = Mathf.Clamp(activeFragmentCount + vy, 0, fragmentCount);
 
             for (var i = 0; i < fragmentCount; i++)
@@ -77,7 +80,9 @@ namespace Rope
                 {
                     fragments[i].GetComponent<Rigidbody>().isKinematic = false;
                 }
-            }
+            }*/
+            
+            // TODO: Allow this some time later
         }
 
         void LateUpdate()

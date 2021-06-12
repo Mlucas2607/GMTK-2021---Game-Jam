@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 13500000}
   - component: {fileID: 5400000}
   - component: {fileID: 14500000}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: RopeFragment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
