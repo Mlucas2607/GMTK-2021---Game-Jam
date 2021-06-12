@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement_PlaceHolder : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Header("Player Variables")]
     public float speed;
