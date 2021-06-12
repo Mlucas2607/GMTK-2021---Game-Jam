@@ -12,17 +12,21 @@ public class ScoreSystem : MonoBehaviour
             if (obstacles == 0)
                 obstacles = 1000;
 
+            return TimeScore + obstacles + Bonuses;
+        }
+    }
+
+    public int TimeScore
+    {
+        get
+        {
             int time = 0;
             if (TimeElapsed > 300)
-            {
                 time -= 100 * (TimeElapsed - 300);
-            }
             else
-            {
                 time += 100 * (300 - TimeElapsed);
-            }
 
-            return time + obstacles + Bonuses;
+            return time;
         }
     }
 
@@ -77,6 +81,12 @@ public class ScoreSystem : MonoBehaviour
     public static ScoreSystem GetInstance()
     {
         return instance;
+    }
+
+    public static void ResetScore()
+    {
+        Destroy(instance.gameObject);
+        instance = null;
     }
     
     private void Start()

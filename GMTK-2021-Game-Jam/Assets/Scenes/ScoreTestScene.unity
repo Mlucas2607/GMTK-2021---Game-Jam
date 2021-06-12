@@ -1852,7 +1852,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1716792303}
-        m_TargetAssemblyTypeName: ScoreUIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: ScoreTestUIManager, Assembly-CSharp
         m_MethodName: AddBonus
         m_Mode: 1
         m_Arguments:
@@ -2616,7 +2616,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1716792303}
-        m_TargetAssemblyTypeName: ScoreUIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: ScoreTestUIManager, Assembly-CSharp
         m_MethodName: EndGame
         m_Mode: 1
         m_Arguments:
