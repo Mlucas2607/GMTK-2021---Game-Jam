@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public InputAction ijkl;
     public Rigidbody rb;
 
+    public Animator animator;
+
     public bool is2nd;
 
     private void Start()
@@ -41,5 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 finalVector = new Vector3(inputVector.x,rb.velocity.y,inputVector.y);
         rb.velocity = finalVector;
+
+        float speedNorm = rb.velocity.magnitude;
+        animator.SetFloat("Speed", speedNorm);
     }
 }
