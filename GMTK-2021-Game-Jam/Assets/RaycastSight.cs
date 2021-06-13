@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class RaycastSight : MonoBehaviour
 {
@@ -83,6 +84,7 @@ public class RaycastSight : MonoBehaviour
         if (fishCount >= 5 && tulipCount >= 55)
         {
             SetSaticVariables();
+            FindObjectOfType<ScoreSystem>().TimeElapsed = (int)endTimer;
             SceneManager.LoadScene(2);
         }
 
