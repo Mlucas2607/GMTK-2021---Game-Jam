@@ -18,7 +18,7 @@ public class MainMenuUIManager : MonoBehaviour
 
     public void OpenLicenseLink1()
     {
-        Application.OpenURL("https://sketchfab.com/3d-models/cats-rigged-and-posed-f38f91b5fa7b43968b8c45d5160b0268#download");
+        Application.OpenURL("https://skfb.ly/6SUQF");
     }
     
     public void OpenLicenseLink2()
