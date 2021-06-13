@@ -43,7 +43,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c539ce14626494994dae1de9835130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefabs:
-  - {fileID: 687462290034868022, guid: 409b238ab06a7f04abb87d6c8d4aa0f4, type: 3}
-  - {fileID: 9031331371405316676, guid: e3f06a143bbce1344a823826dda91a31, type: 3}
-  - {fileID: 5719919276373063641, guid: 7eeb8c2c0852beb43bb89fe9214abb3d, type: 3}
+  obstacles:
+  - prefab: {fileID: 687462290034868022, guid: 409b238ab06a7f04abb87d6c8d4aa0f4, type: 3}
+    minScaleRandomnessX: 0
+    maxScaleRandomnessX: 0
+    minScaleRandomnessY: 0
+    maxScaleRandomnessY: 0
+    minScaleRandomnessZ: 0
+    maxScaleRandomnessZ: 0
+    minRotationRandomnessX: 0
+    maxRotationRandomnessX: 0
+    minRotationRandomnessY: 0
+    maxRotationRandomnessY: 0
+    minRotationRandomnessZ: 0
+    maxRotationRandomnessZ: 0
+  - prefab: {fileID: 9031331371405316676, guid: e3f06a143bbce1344a823826dda91a31, type: 3}
+    minScaleRandomnessX: 0
+    maxScaleRandomnessX: 0
+    minScaleRandomnessY: 0
+    maxScaleRandomnessY: 0
+    minScaleRandomnessZ: 0
+    maxScaleRandomnessZ: 0
+    minRotationRandomnessX: 0
+    maxRotationRandomnessX: 0
+    minRotationRandomnessY: 0
+    maxRotationRandomnessY: 0
+    minRotationRandomnessZ: 0
+    maxRotationRandomnessZ: 0
+  - prefab: {fileID: 6613138538643702988, guid: 9a56af62f8bf48b41bb9b4154bc677d6, type: 3}
+    minScaleRandomnessX: 0
+    maxScaleRandomnessX: 0
+    minScaleRandomnessY: 0
+    maxScaleRandomnessY: 0
+    minScaleRandomnessZ: 0
+    maxScaleRandomnessZ: 0
+    minRotationRandomnessX: 0
+    maxRotationRandomnessX: 0
+    minRotationRandomnessY: 0
+    maxRotationRandomnessY: 360
+    minRotationRandomnessZ: 0
+    maxRotationRandomnessZ: 0
+  - prefab: {fileID: 5719919276373063641, guid: 7eeb8c2c0852beb43bb89fe9214abb3d, type: 3}
+    minScaleRandomnessX: 0
+    maxScaleRandomnessX: 3
+    minScaleRandomnessY: 0
+    maxScaleRandomnessY: 3
+    minScaleRandomnessZ: 0
+    maxScaleRandomnessZ: 3
+    minRotationRandomnessX: 0
+    maxRotationRandomnessX: 0
+    minRotationRandomnessY: 0
+    maxRotationRandomnessY: 0
+    minRotationRandomnessZ: 0
+    maxRotationRandomnessZ: 0
+  minRandomnessX: -3
+  maxRandomnessX: 3
+  minRandomnessZ: -3
+  maxRandomnessZ: 3

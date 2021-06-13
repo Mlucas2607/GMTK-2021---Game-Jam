@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8518969078138062756}
   m_Layer: 0
-  m_Name: Bottle_Obstcale
+  m_Name: Bottle_Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
