@@ -29,9 +29,9 @@ public class ScoreUIManager : MonoBehaviour
         else
             obstaclesCollided.text += $"Hit {collisions} obstacles = {collisions * -200} points";
 
-        timeElapsed.text += $"You took {scoreSystem.TimeElapsed} seconds giving you a score of {scoreSystem.TimeScore}";
-        bonuses.text += $"You got {scoreSystem.BonusesCount} bonuses totaling {scoreSystem.Bonuses} points";
-        ending.text += $"You had {GetWeddingGrade(scoreSystem.Score)}!";
+        timeElapsed.text = $"You took {scoreSystem.TimeElapsed} seconds giving you a score of {scoreSystem.TimeScore}";
+        bonuses.text = $"You got {scoreSystem.BonusesCount} bonuses totaling {scoreSystem.Bonuses} points";
+        ending.text = $"You had {GetWeddingGrade(scoreSystem.Score)}!";
         
         // Can you please code up something like if {scoreSystem.TimeScore} <= 25000 then {WeddingGrade} = "Super Sexy Wedding"
         // Else If {scoreSystem.TimeScore} <= 20000 then {WeddingGrade} = "Amazing Wedding"
