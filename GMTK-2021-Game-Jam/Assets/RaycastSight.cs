@@ -81,7 +81,7 @@ public class RaycastSight : MonoBehaviour
         }
         UpdateText();
 
-        if (fishCount >= 5 && tulipCount >= 55)
+        if (fishCount >= 5 && tulipCount >= 5)
         {
             SetSaticVariables();
             FindObjectOfType<ScoreSystem>().TimeElapsed = (int)endTimer;
