@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3417035769152803974}
   - component: {fileID: 3417035769152804091}
   - component: {fileID: 3417035769152804088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3417035769593594058}
   - component: {fileID: 3417035769593594063}
   - component: {fileID: 8204089144596465730}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,6 +226,7 @@ MonoBehaviour:
       m_Action: Ijkl
       m_Flags: 8
   rb: {fileID: 0}
+  animator: {fileID: 0}
   is2nd: 1
 --- !u!54 &3417035769593594063
 Rigidbody:
