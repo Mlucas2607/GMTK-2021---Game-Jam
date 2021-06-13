@@ -54,7 +54,7 @@ MonoBehaviour:
     minRotationRandomnessX: 0
     maxRotationRandomnessX: 0
     minRotationRandomnessY: 0
-    maxRotationRandomnessY: 0
+    maxRotationRandomnessY: 360
     minRotationRandomnessZ: 0
     maxRotationRandomnessZ: 0
   - prefab: {fileID: 9031331371405316676, guid: e3f06a143bbce1344a823826dda91a31, type: 3}
@@ -66,7 +66,7 @@ MonoBehaviour:
     maxScaleRandomnessZ: 0
     minRotationRandomnessX: 0
     maxRotationRandomnessX: 0
-    minRotationRandomnessY: 0
+    minRotationRandomnessY: 50
     maxRotationRandomnessY: 0
     minRotationRandomnessZ: 0
     maxRotationRandomnessZ: 0
