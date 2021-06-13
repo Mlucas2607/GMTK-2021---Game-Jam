@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 finalVector = new Vector3(inputVector.x,rb.velocity.y,inputVector.y);
         rb.velocity = finalVector;
 
+        if (animator == null)
+            return;
         float speedNorm = rb.velocity.magnitude;
         animator.SetFloat("Speed", speedNorm);
     }

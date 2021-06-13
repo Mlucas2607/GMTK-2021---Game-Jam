@@ -206,9 +206,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 11.869, y: 0, z: 0}
---- !u!145 &387251522 stripped
-SpringJoint:
-  m_CorrespondingSourceObject: {fileID: 7509973856627221608, guid: a7bbbddf637f069449f6ba955376e9de, type: 3}
+--- !u!54 &296299734 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8254196302777404340, guid: a7bbbddf637f069449f6ba955376e9de, type: 3}
   m_PrefabInstance: {fileID: 752791059}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &567675844
@@ -229,7 +229,7 @@ PrefabInstance:
     - target: {fileID: 2704824120275040904, guid: 19941e46572630640bcad89012bec10d, type: 3}
       propertyPath: anchorPoint1
       value: 
-      objectReference: {fileID: 387251522}
+      objectReference: {fileID: 296299734}
     - target: {fileID: 2704824120275040904, guid: 19941e46572630640bcad89012bec10d, type: 3}
       propertyPath: anchorPoint2
       value: 
@@ -370,10 +370,6 @@ PrefabInstance:
     - target: {fileID: 3417035769593594063, guid: a7bbbddf637f069449f6ba955376e9de, type: 3}
       propertyPath: m_UseGravity
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3417035769593594063, guid: a7bbbddf637f069449f6ba955376e9de, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3417035769593594063, guid: a7bbbddf637f069449f6ba955376e9de, type: 3}
       propertyPath: m_CollisionDetection
@@ -560,10 +556,6 @@ PrefabInstance:
     - target: {fileID: 3417035769593594063, guid: a7bbbddf637f069449f6ba955376e9de, type: 3}
       propertyPath: m_UseGravity
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3417035769593594063, guid: a7bbbddf637f069449f6ba955376e9de, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3417035769593594063, guid: a7bbbddf637f069449f6ba955376e9de, type: 3}
       propertyPath: m_CollisionDetection

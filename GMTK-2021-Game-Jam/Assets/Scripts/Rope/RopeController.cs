@@ -7,7 +7,7 @@ namespace Rope
         public GameObject fragmentPrefab;
         public int fragmentCount = 80;
         public Vector3 interval = new Vector3(0f, 0f, 0.25f);
-        public SpringJoint anchorPoint1;
+        public Rigidbody anchorPoint1;
         public Rigidbody anchorPoint2;
 
         GameObject[] fragments;
@@ -44,7 +44,7 @@ namespace Rope
                 }
                 else
                 {
-                    anchorPoint1.connectedBody = fragments[0].GetComponent<Rigidbody>();
+                    joint.connectedBody = anchorPoint1;
                 }
                 
                 position += interval;
