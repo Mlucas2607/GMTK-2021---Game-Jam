@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScoreUIManager : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class ScoreUIManager : MonoBehaviour
     public TMP_Text timeElapsed;
     public TMP_Text bonuses;
     public TMP_Text ending;
+
+    public Image gradeImage;
+    public GradeImage[] gradeImages;
     
     // Start is called before the first frame update
     void Start()
@@ -31,14 +36,10 @@ public class ScoreUIManager : MonoBehaviour
 
         timeElapsed.text = $"You took {scoreSystem.TimeElapsed} seconds giving you a score of {scoreSystem.TimeScore}";
         bonuses.text = $"You got {scoreSystem.BonusesCount} bonuses totaling {scoreSystem.Bonuses} points";
-        ending.text = $"You had {GetWeddingGrade(scoreSystem.Score)}!";
+        ending.text = $"You had {GradeImage.GetTextFromScore(gradeImages, scoreSystem.Score)}!";
+
+        gradeImage.sprite = GradeImage.GetSpriteFromScore(gradeImages, scoreSystem.Score);
         
-        // Can you please code up something like if {scoreSystem.TimeScore} <= 25000 then {WeddingGrade} = "Super Sexy Wedding"
-        // Else If {scoreSystem.TimeScore} <= 20000 then {WeddingGrade} = "Amazing Wedding"
-        // Else If {scoreSystem.TimeScore} <= 15000 then {WeddingGrade} = "Basic Wedding"
-        // Else If {scoreSystem.TimeScore} <= 10000 then {WeddingGrade} = "Crappy Wedding"
-        // Else if {scoreSystem.TimeScore} <= 5000 then {WeddingGrade} = "Disgusting Wedding"
-        // Else if {scoreSystem.TimeScore} then {WeddingGrade} = "Failed Wedding"
         ScoreSystem.ResetScore();
     }
 
@@ -65,5 +66,35 @@ public class ScoreUIManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    [System.Serializable]
+    public struct GradeImage
+    {
+        public Sprite sprite;
+        public string text;
+        public int minScore;
+
+        public static GradeImage GetImageFromScore(GradeImage[] images, int score)
+        {
+            GradeImage lastImage = images[images.Length - 1];
+            foreach (var image in images)
+            {
+                if (image.minScore <= score && lastImage.minScore <= image.minScore)
+                    lastImage = image;
+            }
+
+            return lastImage;
+        }
+        
+        public static Sprite GetSpriteFromScore(GradeImage[] images, int score)
+        {
+            return GetImageFromScore(images, score).sprite;
+        }
+        
+        public static string GetTextFromScore(GradeImage[] images, int score)
+        {
+            return GetImageFromScore(images, score).text;
+        }
     }
 }
