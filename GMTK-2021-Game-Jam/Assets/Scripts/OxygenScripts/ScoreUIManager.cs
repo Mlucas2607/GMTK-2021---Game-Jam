@@ -46,15 +46,15 @@ public class ScoreUIManager : MonoBehaviour
     public string GetWeddingGrade(int score)
     {
         if (score >= 25000)
-            return "a super sexy Wedding";
+            return "an absolutely awesome wedding";
         if (score >= 20000)
-            return "an absolutely amazing wedding";
+            return "a brilliant wedding";
         if (score >= 15000)
             return "a brilliant wedding";
         if (score >= 10000)
             return "a catholic wedding";
         if (score >= 5000)
-            return "a failed wedding";
+            return "a catholic wedding";
         return "a failed wedding";
     }
 
