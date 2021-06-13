@@ -3,6 +3,8 @@ using UnityEngine;
 
 public abstract class Powerup : MonoBehaviour
 {
+    public GameObject meshObject;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != 6)
@@ -21,7 +23,7 @@ public abstract class Powerup : MonoBehaviour
             GivePlayer2Powerup(player1, player2);
         }
 
-        Destroy(gameObject.GetComponent<MeshRenderer>());
+        Destroy(meshObject);
         Destroy(gameObject.GetComponent<Collider>());
     }
 

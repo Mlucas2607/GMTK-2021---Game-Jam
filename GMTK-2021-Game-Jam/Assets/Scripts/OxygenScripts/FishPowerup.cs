@@ -16,7 +16,7 @@ public class FishPowerup : Powerup
     {
         player1.GetComponent<PlayerMovement>().speed += speedIncrease;
         player2.GetComponent<PlayerMovement>().speed += speedIncrease;
-        StartCoroutine(ResetPlayer1Powerup(player1, player2, speedIncreaseTime));
+        StartCoroutine(ResetPlayer2Powerup(player1, player2, speedIncreaseTime));
     }
 
     public override IEnumerator ResetPlayer1Powerup(GameObject player1, GameObject player2, float delay)
