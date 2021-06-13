@@ -33,7 +33,7 @@ public class ScoreSystem : MonoBehaviour
     public int HighScore => PlayerPrefs.GetInt("highScore", 0);
 
     public int ObstacleCollisions { get; private set; }
-    public int TimeElapsed { get; private set; }
+    public int TimeElapsed { get; set; }
     public int Bonuses { get; private set; }
     public int BonusesCount { get; private set; }
 
