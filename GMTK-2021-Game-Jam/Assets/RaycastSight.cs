@@ -10,9 +10,14 @@ public class RaycastSight : MonoBehaviour
     public Transform pointA;
     public Transform pointB;
     public TextMeshProUGUI hpText;
-    
+    public TextMeshProUGUI fishText;
+    public TextMeshProUGUI tulipText;
+
     public float hpPercent = 100f;
     public float hpDecayRate = 0.5f;
+
+    public int fishCount;
+    public int tulipCount;
 
     public float healRate = 1f;
 
@@ -25,8 +30,13 @@ public class RaycastSight : MonoBehaviour
 
     public float rayDis = 100f;
 
+    [Header("WinLoseVars")]
+    public GameObject gameOverScreen;
+
     private void Update()
     {
+        Debug.Log(fishCount);
+        Debug.Log(tulipCount);
         IfDead();
 
         Vector3 lookDir = pointB.position - pointA.position;
@@ -57,8 +67,16 @@ public class RaycastSight : MonoBehaviour
                 return;
             hpPercent -= hpDecayRate * Time.deltaTime;
         }
+        UpdateText();
+    }
+
+    void UpdateText()
+    {
         int p = (int)hpPercent;
         hpText.text = p + "%";
+
+        fishText.text = fishCount + "/5";
+        tulipText.text = tulipCount + "/5";
     }
     void ManageState(int index)
         {
@@ -92,7 +110,20 @@ public class RaycastSight : MonoBehaviour
     void IfDead()
     {
         if (hpPercent <= 0)
-            Debug.Log("Gameover");
+            gameOverScreen.SetActive(true);
     }
-    
+
+    public void PickupCollected()
+    {
+        if (fishCount > 5)
+            return;
+        fishCount++;
+    }
+
+    public void PickupTulip()
+    {
+        if (tulipCount > 5)
+            return;
+        tulipCount++;
+    }
 }
