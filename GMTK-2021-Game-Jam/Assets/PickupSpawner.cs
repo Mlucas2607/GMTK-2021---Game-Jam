@@ -8,7 +8,7 @@ public class PickupSpawner : MonoBehaviour
 
     private void Start()
     {
-        bool isSpawned = Random.Range(0, 100) > 80;
+        bool isSpawned = Random.Range(0, 100) > 65;
         int rndNum = Random.Range(0, prefabs.Length);
         if(isSpawned)
             Instantiate(prefabs[rndNum], transform);
