@@ -51,6 +51,8 @@ namespace Rope
             }
 
             fragments[fragmentCount - 1].GetComponent<SpringJoint>().connectedBody = anchorPoint2;
+            SpringJoint newJoint = fragments[fragmentCount - 1].AddComponent<SpringJoint>();
+            newJoint.connectedBody = fragments[fragmentCount - 2].GetComponent<Rigidbody>();
 
             var lineRenderer = GetComponent<LineRenderer>();
             lineRenderer.positionCount = (fragmentCount - 1) * splineFactor + 1;
