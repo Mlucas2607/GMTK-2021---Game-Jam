@@ -12,6 +12,7 @@ public class ScoreUIManager : MonoBehaviour
     public TMP_Text obstaclesCollided;
     public TMP_Text timeElapsed;
     public TMP_Text bonuses;
+    public TMP_Text ending;
     
     // Start is called before the first frame update
     void Start()
@@ -30,15 +31,30 @@ public class ScoreUIManager : MonoBehaviour
 
         timeElapsed.text += $"You took {scoreSystem.TimeElapsed} seconds giving you a score of {scoreSystem.TimeScore}";
         bonuses.text += $"You got {scoreSystem.BonusesCount} bonuses totaling {scoreSystem.Bonuses} points";
-        // endings.text += $"You had a {WeddingGrade} wedding!"
+        ending.text += $"You had {GetWeddingGrade(scoreSystem.Score)}!";
         
         // Can you please code up something like if {scoreSystem.TimeScore} <= 25000 then {WeddingGrade} = "Super Sexy Wedding"
         // Else If {scoreSystem.TimeScore} <= 20000 then {WeddingGrade} = "Amazing Wedding"
         // Else If {scoreSystem.TimeScore} <= 15000 then {WeddingGrade} = "Basic Wedding"
-        // Else If {scoreSystem.TimeScore} <= 15000 then {WeddingGrade} = "Crappy Wedding"
-        // Else if {scoreSystem.TimeScore} <= 10000 then {WeddingGrade} = "Disgusting Wedding"
+        // Else If {scoreSystem.TimeScore} <= 10000 then {WeddingGrade} = "Crappy Wedding"
+        // Else if {scoreSystem.TimeScore} <= 5000 then {WeddingGrade} = "Disgusting Wedding"
         // Else if {scoreSystem.TimeScore} then {WeddingGrade} = "Failed Wedding"
         ScoreSystem.ResetScore();
+    }
+
+    public string GetWeddingGrade(int score)
+    {
+        if (score >= 25000)
+            return "a Super Sexy Wedding";
+        if (score >= 20000)
+            return "an Amazing Wedding";
+        if (score >= 15000)
+            return "a basic wedding";
+        if (score >= 10000)
+            return "a crappy wedding";
+        if (score >= 5000)
+            return "a disgusting wedding";
+        return "a failed wedding";
     }
 
     public void PlayAgain()
