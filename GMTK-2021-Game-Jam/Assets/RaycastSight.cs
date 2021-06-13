@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class RaycastSight : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class RaycastSight : MonoBehaviour
     public TextMeshProUGUI hpText;
     public TextMeshProUGUI fishText;
     public TextMeshProUGUI tulipText;
+    public TextMeshProUGUI timerText;
 
     public float hpPercent = 100f;
     public float hpDecayRate = 0.5f;
@@ -33,8 +35,17 @@ public class RaycastSight : MonoBehaviour
     [Header("WinLoseVars")]
     public GameObject gameOverScreen;
 
+    [Header("Timer")]
+    private float timer;
+
+
+    [Header("Statics Vars")]
+    public static float endTimer;
+
     private void Update()
     {
+        Timer();
+
         Debug.Log(fishCount);
         Debug.Log(tulipCount);
         IfDead();
@@ -68,8 +79,20 @@ public class RaycastSight : MonoBehaviour
             hpPercent -= hpDecayRate * Time.deltaTime;
         }
         UpdateText();
+
+        if (fishCount >= 5 && tulipCount >= 55)
+        {
+            SetSaticVariables();
+            SceneManager.LoadScene(2);
+        }
+
     }
 
+    void Timer()
+    {
+        timer += 1 * Time.deltaTime;
+        timerText.text = (int)timer + " :Seconds";
+    }
     void UpdateText()
     {
         int p = (int)hpPercent;
@@ -125,5 +148,10 @@ public class RaycastSight : MonoBehaviour
         if (tulipCount > 5)
             return;
         tulipCount++;
+    }
+
+    public void SetSaticVariables()
+    {
+        endTimer = timer;
     }
 }
