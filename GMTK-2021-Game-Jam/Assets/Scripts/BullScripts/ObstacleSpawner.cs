@@ -6,13 +6,16 @@ public class ObstacleSpawner : MonoBehaviour
 {
     [Header("Variables")]
     public Obstacle[] obstacles;
+    public float distanceFromCameraUntilSpawn;
 
+    [Space(1f)]
+    [Header("Random Position")]
     public float minRandomnessX;
     public float maxRandomnessX;
     public float minRandomnessZ;
     public float maxRandomnessZ;
     
-    private void Start()
+    private void Spawn()
     {
         bool isActive = Random.Range(0, 2) > 0;
         if (isActive)
@@ -38,6 +41,25 @@ public class ObstacleSpawner : MonoBehaviour
 
             Instantiate(obstacle.prefab, transform);
         }
+    }
+
+    private Transform camera;
+    private bool spawned = false;
+    
+    private void Update()
+    {
+        var heading = transform.position - camera.position;
+
+        var distance = distanceFromCameraUntilSpawn;
+        if (heading.sqrMagnitude < distance * distance && !spawned) {
+            Spawn();
+            spawned = true;
+        }
+    }
+
+    private void Start()
+    {
+        camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
     [System.Serializable]

@@ -96,6 +96,7 @@ MonoBehaviour:
     maxRotationRandomnessY: 0
     minRotationRandomnessZ: 0
     maxRotationRandomnessZ: 0
+  distanceFromCameraUntilSpawn: 100
   minRandomnessX: -3
   maxRandomnessX: 3
   minRandomnessZ: -3
