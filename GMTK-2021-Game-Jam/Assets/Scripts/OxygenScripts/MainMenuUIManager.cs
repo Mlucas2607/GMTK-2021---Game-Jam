@@ -5,10 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUIManager : MonoBehaviour
 {
+    public GameObject sceneTransition;
+    
     public void Play()
     {
-        // Add animation before loading game
+        FindObjectOfType<AudioManager>().Play("Play Button");
+        sceneTransition.SetActive(true);
+        FindObjectOfType<AudioManager>().FadeOut("Main Menu Music", 1f);
+        Invoke(nameof(LoadScene), 1f);
+    }
+
+    private void LoadScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private void Start()
+    {
+        FindObjectOfType<AudioManager>().Play("Main Menu Music");
     }
 
     public void Quit()
