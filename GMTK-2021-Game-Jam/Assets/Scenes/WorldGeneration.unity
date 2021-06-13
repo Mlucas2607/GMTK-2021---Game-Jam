@@ -486,7 +486,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 185b3b0783cdbef47984292a1be817d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -620,6 +620,7 @@ GameObject:
   - component: {fileID: 1024109529}
   - component: {fileID: 1024109528}
   - component: {fileID: 1024109531}
+  - component: {fileID: 1024109532}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -744,6 +745,15 @@ MonoBehaviour:
   maxZoom: 10
   zoomLimiter: 10
   offset: {x: 0, y: 3, z: -12}
+--- !u!45 &1024109532
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024109526}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 67d02620a1b9c924ea922ccaaf9d1cd0, type: 2}
 --- !u!1 &1099148146
 GameObject:
   m_ObjectHideFlags: 0
