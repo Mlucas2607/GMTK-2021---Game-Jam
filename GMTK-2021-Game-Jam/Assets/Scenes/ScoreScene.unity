@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -608,7 +608,7 @@ RectTransform:
   m_GameObject: {fileID: 960781388}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.92699885, y: 0.92699885, z: 0.92699885}
+  m_LocalScale: {x: 18.256315, y: 18.256315, z: 18.256315}
   m_Children: []
   m_Father: {fileID: 1953420160}
   m_RootOrder: 0
@@ -670,22 +670,22 @@ MonoBehaviour:
   ending: {fileID: 1953420161}
   gradeImage: {fileID: 960781389}
   gradeImages:
-  - sprite: {fileID: 21300000, guid: e96dad1f57c571f4c9f1cdb87b0bf5ac, type: 3}
-    text: a Super Sexy Wedding
+  - sprite: {fileID: 21300000, guid: 36be4c314c9c13741901b07808ba7eb7, type: 3}
+    text: an absolutely awesome wedding
     minScore: 25000
-  - sprite: {fileID: 21300000, guid: fc2b4db947ca2bd40bdf09a535b7aca8, type: 3}
-    text: an Amazing Wedding
+  - sprite: {fileID: 21300000, guid: 8d906543d83d554409571c8d974686b1, type: 3}
+    text: a brilliant wedding
     minScore: 20000
-  - sprite: {fileID: 21300000, guid: aa69bfe5ce1ffc6409cd77465a7fde5c, type: 3}
-    text: a basic wedding
+  - sprite: {fileID: 21300000, guid: 8d906543d83d554409571c8d974686b1, type: 3}
+    text: a brilliant wedding
     minScore: 15000
-  - sprite: {fileID: 21300000, guid: 96d5227f5dd9fd546bfb127018dda25a, type: 3}
-    text: a crappy wedding
+  - sprite: {fileID: 21300000, guid: 3bfb56f7f88a09e48998f354a9432773, type: 3}
+    text: a catholic wedding
     minScore: 10000
-  - sprite: {fileID: 21300000, guid: 6ef5d83e94d35664ab6cfef049984c61, type: 3}
-    text: a disgusting wedding
+  - sprite: {fileID: 21300000, guid: 3bfb56f7f88a09e48998f354a9432773, type: 3}
+    text: a catholic wedding
     minScore: 5000
-  - sprite: {fileID: 21300000, guid: 6ef5d83e94d35664ab6cfef049984c61, type: 3}
+  - sprite: {fileID: 21300000, guid: ece9d6705b1e6934fbbd7cab1bd74e1b, type: 3}
     text: a failed wedding
     minScore: -2147483648
 --- !u!1 &1240664798
