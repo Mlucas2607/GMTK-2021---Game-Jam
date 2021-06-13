@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Rope
@@ -9,6 +10,7 @@ namespace Rope
         public Vector3 interval = new Vector3(0f, 0f, 0.25f);
         public Rigidbody anchorPoint1;
         public Rigidbody anchorPoint2;
+        public GameObject ropeControllerPrefab;
 
         GameObject[] fragments;
 
@@ -28,31 +30,35 @@ namespace Rope
         {
             activeFragmentCount = fragmentCount;
 
-            fragments = new GameObject[fragmentCount];
-
-            var position = anchorPoint1.transform.position;
-
-            for (var i = 0; i < fragmentCount; i++)
+            if (fragments == null)
             {
-                fragments[i] = Instantiate(fragmentPrefab, position, Quaternion.identity);
-                fragments[i].transform.SetParent(transform);
+                fragments = new GameObject[fragmentCount];
 
-                var joint = fragments[i].GetComponent<SpringJoint>();
-                if (i > 0)
+                var position = anchorPoint1.transform.position;
+
+                for (var i = 0; i < fragmentCount; i++)
                 {
-                    joint.connectedBody = fragments[i - 1].GetComponent<Rigidbody>();
-                }
-                else
-                {
-                    joint.connectedBody = anchorPoint1;
-                }
+                    fragments[i] = Instantiate(fragmentPrefab, position, Quaternion.identity);
+                    fragments[i].transform.SetParent(transform);
+                    fragments[i].GetComponent<RopeFragmentChecker>().ropeController = this;
+
+                    var joint = fragments[i].GetComponent<SpringJoint>();
+                    if (i > 0)
+                    {
+                        joint.connectedBody = fragments[i - 1].GetComponent<Rigidbody>();
+                    }
+                    else
+                    {
+                        joint.connectedBody = anchorPoint1;
+                    }
                 
-                position += interval;
-            }
+                    position += interval;
+                }
 
-            fragments[fragmentCount - 1].GetComponent<SpringJoint>().connectedBody = anchorPoint2;
-            SpringJoint newJoint = fragments[fragmentCount - 1].AddComponent<SpringJoint>();
-            newJoint.connectedBody = fragments[fragmentCount - 2].GetComponent<Rigidbody>();
+                fragments[fragmentCount - 1].GetComponent<SpringJoint>().connectedBody = anchorPoint2;
+                SpringJoint newJoint = fragments[fragmentCount - 1].AddComponent<SpringJoint>();
+                newJoint.connectedBody = fragments[fragmentCount - 2].GetComponent<Rigidbody>();
+            }
 
             var lineRenderer = GetComponent<LineRenderer>();
             lineRenderer.positionCount = (fragmentCount - 1) * splineFactor + 1;
@@ -112,6 +118,47 @@ namespace Rope
                     splineX.GetValue(i / (float) splineFactor),
                     splineY.GetValue(i / (float) splineFactor),
                     splineZ.GetValue(i / (float) splineFactor)));
+            }
+        }
+
+        public void BreakRope()
+        {
+            Debug.Log("Breaking rope");
+            var listOfCuts = new List<List<GameObject>>();
+            var currentCut = new List<GameObject>();
+            foreach (var fragment in fragments)
+            {
+                currentCut.Add(fragment);
+                // Decide whether we should cut here
+                if (Random.Range(0, 10) > 5)
+                {
+                    listOfCuts.Add(currentCut);
+                    currentCut = new List<GameObject>();
+                }
+            }
+            
+            if (listOfCuts[listOfCuts.Count - 1].Count == 0)
+                listOfCuts.RemoveAt(listOfCuts.Count - 1);
+
+            foreach (var cuts in listOfCuts)
+            {
+                var ropeController = Instantiate(ropeControllerPrefab, Vector3.zero, Quaternion.identity);
+                ropeController.GetComponent<RopeController>().SetFragments(cuts.ToArray());
+
+                Destroy(cuts[cuts.Count - 1].GetComponent<SpringJoint>());
+            }
+            
+            Destroy(gameObject);
+        }
+
+        private void SetFragments(GameObject[] fragments)
+        {
+            this.fragments = fragments;
+            fragmentCount = fragments.Length;
+
+            foreach (var fragment in fragments)
+            {
+                fragment.transform.SetParent(transform, true);
             }
         }
     }

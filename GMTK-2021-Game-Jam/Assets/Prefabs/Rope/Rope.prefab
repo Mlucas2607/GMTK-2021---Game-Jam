@@ -49,6 +49,7 @@ MonoBehaviour:
   interval: {x: 0, y: 0, z: 0.25}
   anchorPoint1: {fileID: 0}
   anchorPoint2: {fileID: 0}
+  ropeControllerPrefab: {fileID: 2704824120275040905}
 --- !u!120 &2704824120275040906
 LineRenderer:
   m_ObjectHideFlags: 0
