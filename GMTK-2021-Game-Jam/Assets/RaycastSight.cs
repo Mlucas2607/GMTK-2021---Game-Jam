@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class RaycastSight : MonoBehaviour
 {
     [Header("Variables")]
     public Transform pointA;
     public Transform pointB;
+    public TextMeshProUGUI hpText;
+    
+    public float hpPercent = 100f;
+    public float hpDecayRate = 0.5f;
+
+    public float healRate = 1f;
 
     public LayerMask rayMask;
 
@@ -19,12 +27,14 @@ public class RaycastSight : MonoBehaviour
 
     private void Update()
     {
+        IfDead();
+
         Vector3 lookDir = pointB.position - pointA.position;
 
         Ray lookRay = new Ray(pointA.position, lookDir);
         RaycastHit hit;
 
-        Physics.Raycast(lookRay, out hit, 100,rayMask);
+        Physics.Raycast(lookRay, out hit, 100, rayMask);
         if (hit.collider == null)
             return;
         if (hit.collider.tag == "Player")
@@ -35,6 +45,7 @@ public class RaycastSight : MonoBehaviour
             lineRend.enabled = true;
             lineRend.SetPosition(0, pointA.position);
             lineRend.SetPosition(1, pointB.position);
+            Heal();
         }
         else
         {
@@ -42,22 +53,27 @@ public class RaycastSight : MonoBehaviour
             ManageState(1);
             Debug.DrawRay(pointA.position, lookDir, Color.red);
             lineRend.enabled = false;
+            if (hpPercent <= 0)
+                return;
+            hpPercent -= hpDecayRate * Time.deltaTime;
         }
-
-        void ManageState(int index)
+        int p = (int)hpPercent;
+        hpText.text = p + "%";
+    }
+    void ManageState(int index)
         {
-            //Sloppy code too lazy to do properly :(
-            if(index == 1)
-            {
+        //Sloppy code too lazy to do properly :(
+        if(index == 1)
+        {
                 husbandHappy.SetActive(false);
                 husbandSad.SetActive(true);
 
                 wifeHappy.SetActive(false);
                 wifeSad.SetActive(true);
-            }
+        }
 
             if (index == 2)
-            {
+             {
                 husbandHappy.SetActive(true);
                 husbandSad.SetActive(false);
 
@@ -65,5 +81,18 @@ public class RaycastSight : MonoBehaviour
                 wifeSad.SetActive(false);
             }
         }
+
+    void Heal()
+    {
+        if (hpPercent >= 100)
+            return;
+        hpPercent += healRate * Time.deltaTime;
     }
+
+    void IfDead()
+    {
+        if (hpPercent <= 0)
+            Debug.Log("Gameover");
+    }
+    
 }
