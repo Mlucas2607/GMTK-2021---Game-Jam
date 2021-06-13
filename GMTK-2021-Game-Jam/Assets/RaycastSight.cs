@@ -8,6 +8,8 @@ public class RaycastSight : MonoBehaviour
     public Transform pointA;
     public Transform pointB;
 
+    public LayerMask rayMask;
+
     public GameObject husbandHappy,husbandSad;
     public GameObject wifeHappy,wifeSad;
 
@@ -22,14 +24,13 @@ public class RaycastSight : MonoBehaviour
         Ray lookRay = new Ray(pointA.position, lookDir);
         RaycastHit hit;
 
-        Physics.Raycast(lookRay, out hit, 100);
+        Physics.Raycast(lookRay, out hit, 100,rayMask);
         if (hit.collider == null)
             return;
         if (hit.collider.tag == "Player")
         {
             //can be seen
             ManageState(2);
-            Debug.DrawRay(pointA.position, lookDir, Color.blue);
 
             lineRend.enabled = true;
             lineRend.SetPosition(0, pointA.position);
@@ -45,7 +46,7 @@ public class RaycastSight : MonoBehaviour
 
         void ManageState(int index)
         {
-            //Sloppy code too laxzy to do properly :(
+            //Sloppy code too lazy to do properly :(
             if(index == 1)
             {
                 husbandHappy.SetActive(false);
